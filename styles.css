@@ -3,11 +3,12 @@
  src: url('e.woff2') format('woff2'),
       url('e.woff') format('woff');
 }
-@font-face  	{       
+@font-face {
  font-family: 'HeaderFont';
  src: url('f.woff2') format('woff2'),
       url('f.woff') format('woff');
 }
+
 body {
  margin: 0px;
  height: 100vh;
@@ -22,12 +23,13 @@ body {
 	align-items: center;
 	justify-content: center;
 }
+
 .landing-body a {
 	opacity: .5;
 }
 
 .landing-body a:hover {
- border-bottom: 1px solid;
+	border-bottom: 1px solid;
 }
 
 .landing-body h1, h2, h3, h4{
@@ -35,19 +37,21 @@ body {
 	font-family: OtherFont;
 	color: #D6D6D6;
 }
+
 .header-container {
- display: flex;
- flex-direction: column;
- text-align: center;
- border-bottom: 1px solid #7D7D7D;
- padding: 0 0;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	border-bottom: 1px solid #7D7D7D;
+	padding: 0 0;
 }
+
 .logo {
- display: block;
- margin: auto;
- padding-top: 10px;
-	
+	display: block;
+	margin: auto;
+	padding-top: 10px;
 }
+
 .logo a{
  	font-family: HeaderFont;
 	letter-spacing: 3px;
@@ -58,57 +62,65 @@ body {
 }
 
 nav {
- margin: 0;
+	margin: 0;
 }
 
 header ul {
- margin: 0.1em 0 0.1em 0;
+	margin: 0.1em 0 0.1em 0;
 	padding-left: 0;
 }
+
 header ul li {
- display: inline-block;
- padding: 0.15em 1.5em 0.15em 1.5em;
- font-size: 1.3em;
+	display: inline-block;
+	padding: 0.15em 1.5em 0.15em 1.5em;
+	font-size: 1.3em;
 }
+
 header ul li a {
- font-family: HeaderFont;
- text-transform: uppercase;
- text-decoration: none;
- color: #7D7C7D;
+	font-family: HeaderFont;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #7D7C7D;
 }
+
 li a.active {
- color: #C6C6C6;
- border-bottom: 2px solid #C6C6C6;
- font-weight: 300;
+	color: #C6C6C6;
+	border-bottom: 2px solid #C6C6C6;
+	font-weight: 300;
 }
+
 li a:hover {
- color: #C6C6C6;
+	color: #C6C6C6;
 }
 
 @media screen and (min-width : 600px) {
- .logo {
- 	padding-top: 0;
- 	margin-right: 0;
- 	margin-left: 0;
- 	padding-left: 4%
- }
+	.logo {
+		padding-top: 0;
+		margin-right: 0;
+		margin-left: 0;
+		padding-left: 4%
+	}
 
- .logo a {
- 	font-size: 1.11rem;
- }
- .header-container {
-   flex-direction: row;
-   justify-content: space-between;
- }
-header ul li {
-  padding: 0 0 0 1.4em;
- font-size: 0.9em;
-}
-header ul {
- margin: 1em 0 1em 0;
-}
- nav {
-   align-self: center;
-   padding-right: 4%;
- }
+	.logo a {
+		font-size: 1.11rem;
+	}
+
+	.header-container {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	header ul li {
+		padding: 0 0 0 1.4em;
+		font-size: 0.9em;
+	}
+
+	header ul {
+		margin: 1em 0 1em 0;
+	}
+
+	nav {
+		align-self: center;
+		padding-right: 4%;
+	}
 }
