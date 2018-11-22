@@ -103,6 +103,7 @@ li a:hover {
 
 	.logo a {
 		font-size: 1.11rem;
+		text-decoration: none;
 	}
 
 	.header-container {
