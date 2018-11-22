@@ -1,0 +1,13 @@
+# This file is used to generate the navbar, and can be directly used to edit information on it instead of editing the layout file itself.
+- title: About me
+  name: About
+  url: /about
+- title: My projects
+  name: Projects
+  url: /projects
+- title: Blog posts
+  name: Posts
+  url: /posts
+- title: Contact
+  name: Contact me
+  url: /contact
