@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Tristan Mortimer - Qwuke</title>
+		<meta name="description" content="Placeholder"/>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<meta name="viewport" content="width=device-width">
+
+		<!-- Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129302599-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-129302599-1');
+		</script>
+		<!--[if IE 7]><link rel="stylesheet" href="/styles.css"><![endif]-->
+	</head>
+
+	<body>
+		<header class="header-container">
+			<div class="logo"><a title="Qwuke" href="/">Qwuke</a></div>
+			<nav>
+				<ul>
+                {%- assign options = site.data.navigation -%}
+                {% for option in options -%}
+                    {% assign active = nil -%}
+                    {% if page.url contains option.url -%}
+                        {% assign active = 'class="active"' -%}
+                    {% endif -%}
+                        <li >
+                            <a {{ active }} href="{{ site.baseurl }}{{ option.url }}" title="{{ option.title }}">{{ option.name }}</a>
+                        </li>
+                {%- endfor -%}
+				</ul>
+			</nav>
+		</header>
+
+        {{ content }}
+
+    	<script src="/scripts.js"></script>
+    </body>
+</html>
