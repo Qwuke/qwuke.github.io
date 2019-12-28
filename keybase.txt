@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/tmortimer
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://qwu.ke
+  * I am tmortimer (https://keybase.io/tmortimer) on keybase.
+  * I have a public key ASCoTQ1i5mK_AHDlYU5BUtGqa6Z457nGj_3WvNTDrlucIAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01204eb3d33cf59ba04ec0ec9238fc455c571dd46450b69feda19908bb6d3aefac3d0a",
+      "host": "keybase.io",
+      "kid": "0120a84d0d62e662bf0070e5614e4152d1aa6ba678e7b9c68ffdd6bcd4c3ae5b9c200a",
+      "uid": "fe00f01166d894b68acd92a653c58119",
+      "username": "tmortimer"
+    },
+    "merkle_root": {
+      "ctime": 1577571582,
+      "hash": "50a04c2dada25449d0680d2baeb17ace36ccbf15d504e37f58cebb6ce6bb361cc6827eda6187a18aeb8c00924e0c9a3bbd848794277d180201ae0825b5892a83",
+      "hash_meta": "faf122d6d6b49f300e49c0046302c978f3c9480b2b4acad8d697e5ba30827609",
+      "seqno": 13995468
+    },
+    "service": {
+      "entropy": "UjQds/ZUFmu+IDp3MyV50KRs",
+      "hostname": "qwu.ke",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.1.1"
+  },
+  "ctime": 1577571481,
+  "expire_in": 504576000,
+  "prev": "e5c09a2ffe68a765ed6593d09b22ea4dd1d248248f23f0b8827c718fb7524a72",
+  "seqno": 47,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgqE0NYuZivwBw5WFOQVLRqmumeOe5xo/91rzUw65bnCAKp3BheWxvYWTESpcCL8Qg5cCaL/5op2XtZZPQmyLqTdHSSCSPI/C4gnxxj7dSSnLEIIWK+NCaxcgHEcvHH9H9SXwkvX9frQvXLOjWu0jlZtJeAgHCo3NpZ8RAIIfeT1jCNuAgjpRei3b/2CcfjV/5ED+d8qGkAYSL+t7F1PZfXipUDiXsI0RNd/0J53cbGN9dRkSgI1bzO7d0D6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIMzh5zg2lFxrSXBGkMD3wqw/jGQpgJb11ttt+ZKued7Vo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tmortimer
+
+==================================================================
