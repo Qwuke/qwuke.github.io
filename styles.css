@@ -12,9 +12,43 @@
 body {
  margin: 0px;
  height: 100vh;
+ text-align: center;
  background: -webkit-linear-gradient(#07020d 25%, #150627 45%, #220a40 75%, #300d5a) no-repeat fixed;
  background: linear-gradient(#02050D 25%, #060F27 45%, #0A1940 75%, #300d5a) no-repeat fixed;
 }
+
+main {
+	display: grid;
+	font-family: OtherFont;
+	color: #D6D6D6;
+	grid-auto-columns: fit-content(1200px);
+	justify-content: center;
+	align-items: center;
+}
+
+main h1 {
+	font-size: 2rem;
+	margin: 0;
+}
+
+main article h1 {
+	text-transform: uppercase;
+	font-weight: lighter;
+	font-size: 3rem;
+	margin: 0;
+	padding-top: 1.4rem;
+}
+
+main article {
+	padding: 0 1em;
+}
+
+main article p {
+	font-size: 1.5rem;
+	font-weight: lighter;
+
+}
+
 
 .landing-body {
 	display: flex;
@@ -25,25 +59,26 @@ body {
 }
 
 .landing-body a {
-	opacity: .5;
+	opacity: .65;
+	text-decoration: none;
+	color: #D6D6D6;
 }
 
 .landing-body a:hover {
+	color: #D6D6D6;
 	border-bottom: 1px solid;
 }
 
-.landing-body h1, h2, h3, h4{
-	margin: 0;
-	font-family: OtherFont;
-	color: #D6D6D6;
+.landing-body h2 {
+	font-size: 1rem;
 }
 
 .header-container {
 	display: flex;
 	flex-direction: column;
-	text-align: center;
 	border-bottom: 1px solid #7D7D7D;
-	padding: 0 0;
+	text-transform: uppercase;
+	padding: 0;
 }
 
 .logo {
@@ -52,12 +87,12 @@ body {
 	padding-top: 10px;
 }
 
-.logo a{
+.logo a {
  	font-family: HeaderFont;
 	letter-spacing: 3px;
 	font-weight: 500;
-	font-size: 1.5rem;
-    text-transform: uppercase;
+	font-size: 1.4rem;
+	text-decoration: none;
     color: #D6D6D6;
 }
 
@@ -66,19 +101,23 @@ nav {
 }
 
 header ul {
-	margin: 0.1em 0 0.1em 0;
+	flex-wrap: wrap;
+	flex-direction: row;
+	display: flex;
+	list-style-type: none;
+	justify-content: center;
+	margin: 0.1rem 0;
 	padding-left: 0;
 }
 
 header ul li {
-	display: inline-block;
-	padding: 0.15em 1.5em 0.15em 1.5em;
-	font-size: 1.3em;
+	flex-basis: 30%;
+	padding: 0.3rem 1rem;
+	font-size: 1.3rem;
 }
 
 header ul li a {
 	font-family: HeaderFont;
-	text-transform: uppercase;
 	text-decoration: none;
 	color: #7D7C7D;
 }
@@ -102,7 +141,7 @@ li a:hover {
 	}
 
 	.logo a {
-		font-size: 1.11rem;
+		font-size: 1.5rem;
 		text-decoration: none;
 	}
 
@@ -112,12 +151,13 @@ li a:hover {
 	}
 
 	header ul li {
-		padding: 0 0 0 1.4em;
-		font-size: 0.9em;
+		flex-basis: 0%;
+		padding-left: 1.4rem;
+		font-size: 1.25rem;
 	}
 
 	header ul {
-		margin: 1em 0 1em 0;
+		margin: 1rem 0;
 	}
 
 	nav {

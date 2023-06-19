@@ -5,10 +5,10 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<title>Tristan Mortimer - Qwuke</title>
+		<title>Tristan Mortimer - {{ page.title | downcase }}</title>
 		<meta name="description" content="Placeholder"/>
-		<link rel="stylesheet" href="styles.css">
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="stylesheet" href="/styles.css">
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width">
 
 		<!-- Google Analytics -->
@@ -40,9 +40,11 @@
 				</ul>
 			</nav>
 		</header>
-
+		<main>
         {{ content }}
-
-    	<script src="/scripts.js"></script>
+		</main>
+    	<footer>
+		</footer>
+		<script src="/scripts.js"></script>
     </body>
 </html>

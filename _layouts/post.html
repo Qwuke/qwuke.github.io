@@ -1,0 +1,14 @@
+---
+layout: base
+---
+{%- assign options = site.data.navigation -%}
+{% for option in options -%}
+    {% assign active = nil -%}
+    {% if page.url contains option.url -%}
+        {% assign active = 'class="active"' -%}
+    {% endif -%}
+        <li >
+            <a {{ active }} href="{{ site.baseurl }}{{ option.url }}" title="{{ option.title }}">{{ option.name }}</a>
+        </li>
+{%- endfor -%}
+{{ content }}
