@@ -10,18 +10,34 @@
 
 # Site settings
 title: Qwuke
-email: qwuke@qwuke.net
+email: tristan.e.mortimer+qwuke@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Tristan Mortimer's personal site
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://qwu.ke" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: imakebadjokes
 github_username: Qwuke
 
-# Build settings
+# Outputting
+permalink: /posts/:title:output_ext
+paginate: 10 # amount of posts to show
+paginate_path: /posts/page:num/
 markdown: kramdown
+
+# Plugins
 plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
   - jekyll-feed
+  - jemoji
+
+# Mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -34,3 +50,5 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
