@@ -79,8 +79,8 @@ main article p {
 }
 
 .about-photo {
-	width: 200px;
-	height: 200px;
+	width: 300px;
+	height: 300px;
 	border-radius: 50%;
 	overflow: hidden;
 	flex-wrap: wrap;
@@ -203,6 +203,6 @@ li a:hover {
 	}
 
 	.about-photo {
-		margin-top: 10vh;
+		margin-top: 6vh;
 	}
 }
