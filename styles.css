@@ -82,18 +82,32 @@ main article p {
 	width: 200px;
 	height: 200px;
 	border-radius: 50%;
-    overflow: hidden;
+	overflow: hidden;
 	flex-wrap: wrap;
 	position: relative;
 }
 
-.about-photo img{
+.about-photo img {
 	width: 100%;
 	height: auto;
 	clip-path: circle();
 	border-radius: 50%;
 	position: relative;
+}
 
+.about-body p {
+	margin-bottom: 7px;
+}
+
+.about-body ul {
+	display: flex;
+	flex-direction:column;
+	text-align: center;
+	margin-top: 0;
+}
+
+.about-body li {
+	font-size: 1.5rem;
 }
 
 .header-container {
