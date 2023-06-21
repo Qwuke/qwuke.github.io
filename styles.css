@@ -49,13 +49,13 @@ main article p {
 
 }
 
-
 .landing-body {
 	display: flex;
     flex-direction: column;
-	height: 70vh;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+	margin-top: 35vh;
 }
 
 .landing-body a {
@@ -69,8 +69,31 @@ main article p {
 	border-bottom: 1px solid;
 }
 
-.landing-body h2 {
+.landing-body h3 {
 	font-size: 1rem;
+}
+
+.about-body {
+	margin-top: 0;
+	max-width:730px;
+}
+
+.about-photo {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+    overflow: hidden;
+	flex-wrap: wrap;
+	position: relative;
+}
+
+.about-photo img{
+	width: 100%;
+	height: auto;
+	clip-path: circle();
+	border-radius: 50%;
+	position: relative;
+
 }
 
 .header-container {
@@ -163,5 +186,9 @@ li a:hover {
 	nav {
 		align-self: center;
 		padding-right: 4%;
+	}
+
+	.about-photo {
+		margin-top: 10vh;
 	}
 }
