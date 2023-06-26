@@ -1,5 +1,16 @@
 ---
-layout: default
-title: My blog
+layout: base
+title: Blog posts
+header: Blog posts
 permalink: /posts
+pagination:
+  enabled: true
 ---
+
+<div class="landing-body">
+  <h2>Coming Fall 2023</h2>
+  <p><a href="/index.html">Home</a></p>
+</div>
+{% for post in site.posts %}
+
+{% endfor %}
