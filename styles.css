@@ -110,6 +110,20 @@ main article p {
 	font-size: 1.5rem;
 }
 
+.contact-body ul {
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+	font-size: 40px;
+	list-style-type: none;
+	justify-content:center;
+	padding: 0;
+}
+
+.contact-body a {
+	opacity: .85;
+}
+
 .header-container {
 	display: flex;
 	flex-direction: column;
