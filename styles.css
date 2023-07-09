@@ -120,6 +120,10 @@ main article p {
 	padding: 0;
 }
 
+.contact-body li {
+	margin: 0 auto;
+}
+
 .contact-body a {
 	opacity: .85;
 }
