@@ -7,7 +7,9 @@ import { prepareWithSegments } from '/lib/pretext/layout.js'
 const FONT_SIZE = 14
 const LINE_HEIGHT = 18
 const FONT = `${FONT_SIZE}px OtherFont, Georgia, serif`
-const STAR_DENSITY = 0.045
+const BASE_STAR_DENSITY = 0.035
+const NARROW_BREAKPOINT = 600
+const NARROW_STAR_DENSITY = 0.018
 const TWINKLE_MIN_PERIOD = 1500
 const TWINKLE_MAX_PERIOD = 4000
 const FALLING_STAR_MIN_INTERVAL = 4000
@@ -15,7 +17,7 @@ const FALLING_STAR_MAX_INTERVAL = 9000
 const FALLING_STAR_LENGTH = 6
 const FALLING_STAR_SPEED = 35
 
-const STAR_CHARS = ['.', '*', '+', '·', '°', '×', '`']
+const STAR_CHARS = ['.', '*', '+', '\u00B7', '\u00B0', '\u00D7', '`']
 const FALLING_CHARS_RIGHT = ['\\', '\\', '*', '.', '.', ' ']
 const FALLING_CHARS_LEFT = ['/', '/', '*', '.', '.', ' ']
 
@@ -65,22 +67,32 @@ function esc(ch) {
   return ch
 }
 
-// --- Grid setup ---
-function computeGridSize(container) {
+// --- Grid setup: use pretext-measured space width for accurate column count ---
+function computeGridSize(container, spaceWidth) {
   const w = container.clientWidth
   const h = container.clientHeight
-  const cols = Math.max(20, Math.floor(w / 9))
-  const rows = Math.max(8, Math.floor(h / LINE_HEIGHT))
+  const charWidth = spaceWidth > 0 ? spaceWidth : 4
+  const cols = Math.max(20, Math.floor(w / charWidth))
+  const rows = Math.max(4, Math.floor(h / LINE_HEIGHT))
   return { cols, rows, width: w }
 }
 
+// --- Star density scales with viewport width ---
+function getDensity(viewportWidth) {
+  if (viewportWidth <= NARROW_BREAKPOINT) return NARROW_STAR_DENSITY
+  // Lerp between narrow and base density
+  const t = Math.min(1, (viewportWidth - NARROW_BREAKPOINT) / 600)
+  return NARROW_STAR_DENSITY + t * (BASE_STAR_DENSITY - NARROW_STAR_DENSITY)
+}
+
 // --- Star state ---
-function createStarGrid(cols, rows, palette) {
+function createStarGrid(cols, rows, palette, viewportWidth) {
+  const density = getDensity(viewportWidth)
   const grid = []
   for (let r = 0; r < rows; r++) {
     const row = []
     for (let c = 0; c < cols; c++) {
-      if (Math.random() < STAR_DENSITY) {
+      if (Math.random() < density) {
         const entry = palette[Math.floor(Math.random() * palette.length)]
         const isWarm = Math.random() < 0.15
         row.push({
@@ -102,10 +114,6 @@ function createStarGrid(cols, rows, palette) {
 }
 
 // --- Falling star state ---
-function createFallingStars() {
-  return []
-}
-
 function spawnFallingStar(cols, rows) {
   const goRight = Math.random() < 0.5
   const startCol = goRight
@@ -161,17 +169,45 @@ function renderRow(rowData, cols, now, fallingStarCells) {
   return html
 }
 
+// --- Position star field below header ---
+function positionBelowHeader(container) {
+  const header = document.querySelector('header.header-container')
+  if (header) {
+    const headerRect = header.getBoundingClientRect()
+    const topOffset = headerRect.bottom
+    container.style.top = topOffset + 'px'
+    // Fill from below header to ~45vh
+    const availableHeight = window.innerHeight * 0.45 - topOffset
+    container.style.height = Math.max(100, availableHeight) + 'px'
+  } else {
+    container.style.top = '0px'
+    container.style.height = '45vh'
+  }
+}
+
 // --- Main init ---
+let animationId = null
+
 function init() {
   const container = document.getElementById('star-field')
   if (!container) return
 
-  const { cols, rows } = computeGridSize(container)
+  // Cancel any running animation
+  if (animationId) cancelAnimationFrame(animationId)
+  container.innerHTML = ''
+
+  // Position below header
+  positionBelowHeader(container)
+
+  // Measure space width using pretext for accurate column calculation
+  const spaceWidth = measureCharWidth(' ')
+
+  const { cols, rows, width } = computeGridSize(container, spaceWidth)
   const palette = buildPalette()
   if (palette.length === 0) return
 
-  const grid = createStarGrid(cols, rows, palette)
-  const fallingStars = createFallingStars()
+  const grid = createStarGrid(cols, rows, palette, width)
+  const fallingStars = []
 
   // Create row elements
   const rowNodes = []
@@ -229,25 +265,18 @@ function init() {
       rowNodes[r].innerHTML = html
     }
 
-    requestAnimationFrame(animate)
+    animationId = requestAnimationFrame(animate)
   }
 
-  requestAnimationFrame(animate)
-
-  // Handle resize
-  let resizeTimeout
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout)
-    resizeTimeout = setTimeout(() => {
-      const newSize = computeGridSize(container)
-      if (newSize.cols !== cols || newSize.rows !== rows) {
-        // Full reinit on resize
-        container.innerHTML = ''
-        init()
-      }
-    }, 300)
-  })
+  animationId = requestAnimationFrame(animate)
 }
+
+// Handle resize — debounced reinit
+let resizeTimeout
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout)
+  resizeTimeout = setTimeout(() => init(), 300)
+})
 
 // Wait for fonts then start
 document.fonts.ready.then(() => {

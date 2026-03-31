@@ -61,15 +61,12 @@ main article p {
 
 #star-field {
 	position: fixed;
-	top: 0;
 	left: 0;
 	width: 100%;
-	height: 45vh;
-	pointer-events: none;
-	z-index: 0;
 	overflow: hidden;
-	-webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-	mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+	z-index: 0;
+	-webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
+	mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
 }
 
 .star-row {
@@ -78,8 +75,9 @@ main article p {
 	font-size: 14px;
 	line-height: 18px;
 	height: 18px;
-	text-align: center;
+	text-align: left;
 	color: rgba(210, 210, 200, 0);
+	cursor: default;
 }
 
 .sa1 { color: rgba(210, 210, 200, 0.08); }
