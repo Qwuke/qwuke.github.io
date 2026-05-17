@@ -1,0 +1,31 @@
+---
+layout: default
+title: Blog posts
+permalink: /posts/
+---
+<article class="post-index">
+    <h1>Blog posts</h1>
+    <p class="post-meta"><a href="{{ site.baseurl }}/tags/">Browse by tag</a></p>
+
+    {% if paginator.posts.size == 0 %}
+    <p>No posts yet.</p>
+    {% else %}
+    <ul class="post-list">
+        {% for post in paginator.posts %}
+        <li>{% include post-card.html post=post %}</li>
+        {% endfor %}
+    </ul>
+
+    {% if paginator.total_pages > 1 %}
+    <nav class="pager">
+        {% if paginator.previous_page %}
+        <a class="pager-prev" href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer</a>
+        {% endif %}
+        <span class="pager-status">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+        {% if paginator.next_page %}
+        <a class="pager-next" href="{{ paginator.next_page_path | relative_url }}">Older &rarr;</a>
+        {% endif %}
+    </nav>
+    {% endif %}
+    {% endif %}
+</article>

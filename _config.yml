@@ -30,6 +30,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll-archives
 
 # Mimic GitHub Pages with --safe
 whitelist:
@@ -38,6 +39,15 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll-archives
+
+# Tag archive pages: /tags/<name>/ rendered with _layouts/tag.html
+jekyll-archives:
+  enabled:
+    - tags
+  layout: tag
+  permalinks:
+    tag: /tags/:name/
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

@@ -1,0 +1,21 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+<article class="tag-index">
+    <h1>Tags</h1>
+    {% assign sorted_tags = site.tags | sort %}
+    {% if sorted_tags.size == 0 %}
+    <p>No tagged posts yet.</p>
+    {% else %}
+    <ul class="tag-list">
+        {% for tag in sorted_tags %}
+        <li>
+            <a class="tag-chip" href="{{ site.baseurl }}/tags/{{ tag[0] | slugify }}/">{{ tag[0] }}</a>
+            <span class="tag-count">({{ tag[1].size }})</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</article>

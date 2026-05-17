@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="tag-archive">
+    <h1>Posts tagged "{{ page.title }}"</h1>
+    <p class="post-meta"><a href="{{ site.baseurl }}/tags/">All tags</a> · <a href="{{ site.baseurl }}/posts">All posts</a></p>
+
+    <ul class="post-list">
+        {% for post in page.posts %}
+        <li>{% include post-card.html post=post %}</li>
+        {% endfor %}
+    </ul>
+</article>
